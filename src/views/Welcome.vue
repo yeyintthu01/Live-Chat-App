@@ -1,6 +1,6 @@
 <template>
     <div class="welcome container">
-        <h1>Welcome</h1>
+        <p>Welcome</p>
     </div>
 </template>
 
@@ -11,5 +11,8 @@ export default {
 </script>
 
 <style>
-
+    .welcome{
+        text-align: center;
+        padding: 20px 0;
+    }
 </style>
