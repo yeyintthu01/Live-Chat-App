@@ -12,17 +12,20 @@
 <script>
 import { ref } from 'vue'
 import useSignup from "../composables/useSignup"
+import {useRouter} from "vue-router"
 export default {
     setup(props,context){
         let displayName=ref("")
         let email=ref("")
         let password=ref("")
+        let router=useRouter()
         
         let {error,createAccount}=useSignup()
         let signUp=async()=>{
             let res=await createAccount(email.value,password.value,displayName.value)
             if(res){
-                context.emit("enterChatroom")
+                // context.emit("enterChatroom")
+                router.push("/chatroom")
             }
         }
         return {displayName,email,password,signUp,error}

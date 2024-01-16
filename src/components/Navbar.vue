@@ -9,21 +9,17 @@
 </template>
 
 <script>
-import { auth } from '../firebase/config'
-
+import getUser from "../composables/getUser"
 import useLogout from "../composables/useLogout"
-import { ref } from 'vue'
 export default {
     setup(){
-        let user=ref(auth.currentUser)
+        let {user}=getUser()
+        console.log(user.value)
         let {error,signOut}=useLogout()
         let logout=async()=>{
             await signOut()
-            console.log("user logout")
         }
-        auth.onAuthStateChanged((_user)=>{
-            user.value=_user
-        })
+        
         return {logout,error,user}
     }
 }
