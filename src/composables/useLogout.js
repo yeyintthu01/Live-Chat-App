@@ -8,7 +8,6 @@ let signOut=async()=>{
         return res;
     }catch(err){
         error.value=err.message;
-        console.log(error.value)
     }
 }
 let useLogout=()=>{

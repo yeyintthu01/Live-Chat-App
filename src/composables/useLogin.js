@@ -9,9 +9,14 @@ let signIn=async(email,password)=>{
         if(!res){
             throw new Error("Cann't login account")
         }
-        return res;
+        
+        console.log(res)
+        return res
     }catch(err){
-        console.log(err.message)
+        if(err.code === 'auth/internal-error')
+            error.value = 'email or password invalid'
+         else error.value=err.message
+        console.log(err.code)
     }
 }
 

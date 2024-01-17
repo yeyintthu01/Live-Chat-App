@@ -14,12 +14,10 @@ import useLogout from "../composables/useLogout"
 export default {
     setup(){
         let {user}=getUser()
-        console.log(user.value)
         let {error,signOut}=useLogout()
         let logout=async()=>{
             await signOut()
         }
-        
         return {logout,error,user}
     }
 }

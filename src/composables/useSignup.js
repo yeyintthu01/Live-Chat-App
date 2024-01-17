@@ -10,9 +10,10 @@ let createAccount=async(email,password,displayName)=>{
             throw new Error("Cann't create account")
         }
         res.user.updateProfile({displayName})
-        return res;
+        return res
     }catch(err){
         error.value=err.message
+        console.log(err.message)
     }
 }
 

@@ -1,11 +1,11 @@
 <template>
     <div class="welcome container">
         <div v-if="showLoginForm">
-            <Login @enterChatroom="enterChatroom"></Login>
+            <Login></Login>
             <p>Not a member? <span @click="showLoginForm=!showLoginForm">Create Account?</span></p>
         </div>
         <div v-else>
-            <SignUp @enterChatroom="enterChatroom"></SignUp>
+            <SignUp></SignUp>
             <p>Already member? <span @click="showLoginForm=!showLoginForm">Login Account?</span></p>
         </div>
         
@@ -25,10 +25,10 @@ export default {
         let showLoginForm=ref(true)
         let router = useRouter()
 
-        let enterChatroom=()=>{
-            router.push("/chatroom")
-        }
-        return {showLoginForm,enterChatroom}
+        // let enterChatroom=()=>{
+        //     router.push("/chatroom")
+        // }
+        return {showLoginForm}
     }
 
 }
