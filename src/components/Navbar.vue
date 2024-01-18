@@ -11,12 +11,15 @@
 <script>
 import getUser from "../composables/getUser"
 import useLogout from "../composables/useLogout"
+import {useRouter} from "vue-router"
 export default {
     setup(){
+        let router=useRouter()
         let {user}=getUser()
         let {error,signOut}=useLogout()
         let logout=async()=>{
             await signOut()
+            router.push("/")
         }
         return {logout,error,user}
     }
